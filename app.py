@@ -1,6 +1,4 @@
-import datetime as dt
 from flask import Flask, request, render_template
-
 import requests
 
 app = Flask(__name__)
@@ -35,8 +33,9 @@ def index():
 @app.route('/weather', methods=['POST'])
 def weather():
     loc = request.form['location']
+    country = request.form['country']
 
-    url = f"http://api.weatherapi.com/v1/current.json?key=87a44b75adab42b597544223231910&q={loc}&aqi=no"
+    url = f"http://api.weatherapi.com/v1/current.json?key=87a44b75adab42b597544223231910&q={loc},{country}&aqi=no"
 
     response = requests.get(url)
 
