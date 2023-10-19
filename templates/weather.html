@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+</head>
+<body>
+    <h1>Weather Report</h1>
+    <p>Name: {{ name }}</p>
+    <p>Region: {{ region }}</p>
+    <p>Country: {{ country }}</p>
+    <p>Local time: {{ localtime }}</p>
+    <p>Condition: <img src="{{ condition_icon }}" alt="{{ condition_text }}"> {{ condition_text }}</p>
+    <p>Humidity: {{ humidity }}%</p>
+    <p>Cloud coverage: {{ cloud }}%</p>
+    <p>Visibility: {{ visibility }} km</p>
+    <p>Temperature: {{ temp_c }} °C / {{ temp_f }} °F</p>
+    <p>Feels like: {{ feelslike_c }} °C / {{ feelslike_f }} °F</p>
+</body>
+</html>
