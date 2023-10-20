@@ -1,131 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-</head>
-<body>
-    <form action="/weather" method="post">
-        <label for="location">Enter location:</label>
-        <input type="text" id="location" name="location" list="suggested_locations">
-        <datalist id="suggested_locations">
-            <option value="Mumbai">
-            <option value="Delhi">
-            <option value="Bangalore">
-            <option value="Hyderabad">
-            <option value="Ahmedabad">
-            <option value="Chennai">
-            <option value="Kolkata">
-            <option value="Pune">
-            <option value="Jaipur">
-            <option value="Lucknow">
-            <option value="Kanpur">
-            <option value="Nagpur">
-            <option value="Visakhapatnam">
-            <option value="Indore">
-            <option value="Thane">
-            <option value="Bhopal">
-            <option value="Patna">
-            <option value="Vadodara">
-            <option value="Ghaziabad">
-            <option value="Ludhiana">
-            <option value="Agra">
-            <option value="Nashik">
-            <option value="Faridabad">
-            <option value="Meerut">
-            <option value="Rajkot">
-            <option value="Varanasi">
-            <option value="Srinagar">
-            <option value="Aurangabad">
-            <option value="Dhanbad">
-            <option value="Amritsar">
-            <option value="Navi Mumbai">
-            <option value="Allahabad">
-            <option value="Howrah">
-            <option value="Gwalior">
-            <option value="Jabalpur">
-            <option value="Coimbatore">
-            <option value="Vijayawada">
-            <option value="Jodhpur">
-            <option value="Madurai">
-            <option value="Raipur">
-            <option value="Kota">
-            <option value="Guwahati">
-            <option value="Chandigarh">
-            <option value="Solapur">
-            <option value="Hubli">
-            <option value="Dharwad">
-            <option value="Bareilly">
-            <option value="Moradabad">
-            <option value="Mysore">
-            <option value="Gurgaon">
-            <option value="Aligarh">
-            <option value="Jalandhar">
-            <option value="Tiruchirapalli">
-            <option value="Bhubaneswar">
-            <option value="Salem">
-            <option value="Mira-Bhayandar">
-            <option value="Warangal">
-            <option value="Thiruvananthapuram">
-            <option value="Bhiwandi">
-            <option value="Saharanpur">
-            <option value="Gorakhpur">
-            <option value="Guntur">
-            <option value="Bikaner">
-            <option value="Amravati">
-            <option value="Noida">
-            <option value="Jamshedpur">
-            <option value="Bhilai">
-            <option value="Cuttack">
-            <option value="Firozabad">
-            <option value="Kochi">
-            <option value="Nellore">
-            <option value="Bhavnagar">
-            <option value="Dehradun">
-            <option value="Durgapur">
-            <option value="Asansol">
-            <option value="Rourkela">
-            <option value="Nanded">
-            <option value="Kolhapur">
-            <option value="Ajmer">
-            <option value="Akola">
-            <option value="Gulbarga">
-            <option value="Jamnagar">
-            <option value="Ujjain">
-            <option value="Loni">
-            <option value="Siliguri">
-            <option value="Jhansi">
-            <option value="Ulhasnagar">
-            <option value="Jammu">
-            <option value="Sangli-Miraj & Kupwad">
-            <option value="Mangalore">
-            <option value="Erode">
-            <option value="Belgaum">
-            <option value="Ambattur">
-            <option value="Tirunelveli">
-            <option value="Malegaon">
-            <option value="Gaya">
-            <option value="Jalgaon">
-            <option value="Udaipur">
-            <option value="Maheshtala">
-            <option value="Tirupur">
-            <option value="Davanagere">
-        </datalist>
-        <label for="country">Select country:</label>
-        <input type="text" id="country" name="country" list="suggested_countries">
-        <datalist id="suggested_countries">
-            <option value="India">
-            <option value="USA">
-            <option value="Canada">
-            <option value="Australia">
-            <option value="France">
-            <option value="Russia">
-            <option value="Spain">
-            <option value="Lebanon">
-        </datalist>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/styles1.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@1,100&family=Signika&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <body>
+            <div class="navbar">
+                <a href="#info" class="navbar-link">Info</a>
+                <div id="info" class="content-section">
+                    <h4>Basic Weather App made up using Html,
+                        CSS and Flask which uses an API to fetch data</h4>
+                </div>
+        
+                <a href="#source" class="navbar-link">Source</a>
+                <div id="source" class="content-section">   
+                    <u><a href="https://www.weatherapi.com/"><h4>WeatherAPI</h4></a></u>
+                </div>
+        
+                <a href="#version" class="navbar-link">Version</a>
+                <div id="version" class="content-section">
+                    <h4>1.0.0</h4>
+                </div>
+            </div>
+        <form action="/weather" method="post">
+            <div class="container">
+                <input type="text" name="country" id="country" placeholder="Select search Country" list="suggested_countries" class = "transparent-text-field1">
+            </div>
+            <datalist id="suggested_countries">
+                <option value="India">
+                <option value="USA">
+                <option value="Canada">
+                <option value="Australia">
+                <option value="France">
+                <option value="Russia">
+                <option value="Spain">
+                <option value="Lebanon">
+            </datalist>
 
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
+            <div class = "container">
+
+                <input type="text" name="location" id="location" placeholder="Enter search location" list="suggested_locations" class = "transparent-text-field2">
+            </div>
+
+            <datalist id="suggested_locations">
+                <option value="Mumbai">
+                <option value="Delhi">
+                <option value="Bangalore">
+                <option value="Hyderabad">
+                <option value="Ahmedabad">
+                <option value="Chennai">
+                <option value="Kolkata">
+                <option value="Pune">
+                <option value="Jaipur">
+                <option value="Lucknow">
+                <option value="Kanpur">
+                <option value="Nagpur">
+                <option value="Visakhapatnam">
+                <option value="Indore">
+                <option value="Thane">
+                <option value="Bhopal">
+                <option value="Patna">
+                <option value="Vadodara">
+                <option value="Ghaziabad">
+                <option value="Ludhiana">
+                <option value="Agra">
+                <option value="Nashik">
+                <option value="Faridabad">
+                <option value="Meerut">
+                <option value="Rajkot">
+                <option value="Varanasi">
+                <option value="Srinagar">
+                <option value="Aurangabad">
+                <option value="Dhanbad">
+                <option value="Amritsar">
+                <option value="Navi Mumbai">
+                <option value="Allahabad">
+                <option value="Howrah">
+                <option value="Gwalior">
+                <option value="Jabalpur">
+                <option value="Coimbatore">
+
+                <option value="Vijayawada">
+                <option value="Jodhpur">
+                <option value="Madurai">
+                <option value="Raipur">
+                <option value="Kota">
+                <option value="Guwahati">
+                <option value="Chandigarh">
+                <option value="Solapur">
+                <option value="Hubli">
+                <option value="Dharwad">
+                <option value="Bareilly">
+                <option value="Moradabad">
+                <option value="Mysore">
+                <option value="Gurgaon">
+                <option value="Aligarh">
+                <option value="Jalandhar">
+                <option value="Tiruchirapalli">
+                <option value="Bhubaneswar">
+                <option value="Salem">
+                <option value="Mira-Bhayandar">
+                <option value="Warangal">
+                <option value="Thiruvananthapuram">
+                <option value="Bhiwandi">
+                <option value="Saharanpur">
+                <option value="Gorakhpur">
+                <option value="Guntur">
+                <option value="Bikaner">
+                <option value="Amravati">
+                <option value="Noida">
+                <option value="Jamshedpur">
+                <option value="Bhilai">
+                <option value="Cuttack">
+                <option value="Firozabad">
+                <option value="Kochi">
+                <option value="Nellore">
+                <option value="Bhavnagar">
+                <option value="Dehradun">
+                <option value="Durgapur">
+                <option value="Asansol">
+                <option value="Rourkela">
+                <option value="Nanded">
+                <option value="Kolhapur">
+                <option value="Ajmer">
+                <option value="Akola">
+                <option value="Gulbarga">
+                <option value="Jamnagar">
+                <option value="Ujjain">
+                <option value="Loni">
+                <option value="Siliguri">
+                <option value="Jhansi">
+                <option value="Ulhasnagar">
+                <option value="Jammu">
+                <option value="Sangli-Miraj & Kupwad">
+                <option value="Mangalore">
+                <option value="Erode">
+                <option value="Belgaum">
+                <option value="Ambattur">
+                <option value="Tirunelveli">
+                <option value="Malegaon">
+                <option value="Gaya">
+                <option value="Jalgaon">
+                <option value="Udaipur">
+                <option value="Maheshtala">
+                <option value="Tirupur">
+                <option value="Davanagere">
+            </datalist>
+
+            <div class = "container">
+                <input type="submit" value="Enter" class = "enter">
+            </div>
+        </form>
+        <label class="heading" for="weather-toggle">Popular Cities</label>
+        <input type="checkbox" id="weather-toggle" class="weather-toggle">
+        <section class="weather-cards">
+            <div class="card">
+                <h2>Trivandrum</h2>
+                <p>Temperature: 29°C</p>
+                <p>Weather: Mist</p>
+            </div>
+            <div class="card">
+                <h2>Mumbai</h2>
+                <p>Temperature: 28°C</p>
+                <p>Weather: Clear</p>
+            </div>
+            <div class="card">
+                <h2>Chennai</h2>
+                <p>Temperature: 32°C</p>
+                <p>Weather: Sunny</p>
+            </div>
+            <div class="card">
+                <h2>Kolkata</h2>
+                <p>Temperature: 32°C</p>
+                <p>Weather: Mist</p>
+            </div>
+            <div class="card">
+                <h2>Jaipur</h2>
+                <p>Temperature: 35°C</p>
+                <p>Weather: Sunny</p>
+            </div>
+            <div class="card">
+                <h2>Kochi</h2>
+                <p>Temperature: 32°C</p>
+                <p>Weather: Cloudy</p>
+            </div>
+        </section>
+    
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </section>
+    </body>

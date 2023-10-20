@@ -1,7 +1,10 @@
 from flask import Flask, request, render_template
 import requests
+from datetime import datetime
 
+now = datetime.now().hour
 app = Flask(__name__)
+
 def get_location_suggestions(query):
     suggested_locations = [
         'Mumbai', 'Delhi', 'Bangalore', 'Hyderabad', 'Ahmedabad', 'Chennai',
@@ -38,7 +41,7 @@ def weather():
     url = f"http://api.weatherapi.com/v1/current.json?key=87a44b75adab42b597544223231910&q={loc},{country}&aqi=no"
 
     response = requests.get(url)
-
+    
     if response.status_code == 200:
         data = response.json()
         name = data['location']['name']
@@ -54,14 +57,22 @@ def weather():
         temp_f = data['current']['temp_f']
         feelslike_c = data['current']['feelslike_c']
         feelslike_f = data['current']['feelslike_f']
+        forecast_url = f"http://api.weatherapi.com/v1/forecast.json?key=87a44b75adab42b597544223231910&q={loc},{country}&days=1&hour={now}&aqi=no&alerts=no"
+        forecast_response = requests.get(forecast_url)
+        if forecast_response.status_code == 200:
+            forecast_data = forecast_response.json()
+            hourly_forecast = forecast_data['forecast']['forecastday'][0]['hour']
+        else:
+            hourly_forecast = []
+
 
         return render_template('weather.html', 
                                name=name, region=region, country=country, localtime=localtime,
                                condition_icon=condition_icon, condition_text=condition_text,
                                humidity=humidity, cloud=cloud, visibility=visibility,
-                               temp_c=temp_c, temp_f=temp_f, feelslike_c=feelslike_c, feelslike_f=feelslike_f)
+                               temp_c=temp_c, temp_f=temp_f, feelslike_c=feelslike_c, feelslike_f=feelslike_f,
+                               hourly_forecast=hourly_forecast)
     else:
         return render_template('location_not_found.html', location=loc)
-
-if __name__ == '__main__':
+if __name__=="__main__":
     app.run(debug=True)

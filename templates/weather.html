@@ -1,21 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>Weather Report</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles2.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@1,100&family=Signika&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Inter:wght@300&family=Montserrat&family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@1,100&family=Signika&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>Weather Report</h1>
-    <p>Name: {{ name }}</p>
-    <p>Region: {{ region }}</p>
-    <p>Country: {{ country }}</p>
-    <p>Local time: {{ localtime }}</p>
-    <p>Condition: <img src="{{ condition_icon }}" alt="{{ condition_text }}"> {{ condition_text }}</p>
-    <p>Humidity: {{ humidity }}%</p>
-    <p>Cloud coverage: {{ cloud }}%</p>
-    <p>Visibility: {{ visibility }} km</p>
-    <p>Temperature: {{ temp_c }} °C / {{ temp_f }} °F</p>
-    <p>Feels like: {{ feelslike_c }} °C / {{ feelslike_f }} °F</p>
+
+<body class="condition-{{condition_text}}">
+    <div class="heading"><a href="/">SkySnap</a></div>
+
+    <div class="weather-info">
+        <div class="location-details">
+            <p class="name">Name: {{ name }}</p>
+            <p class="region">Region: {{ region }}</p>
+            <p class="country">Country: {{ country }}</p>
+        </div>
+
+        <div class="current-time">Local time: {{ localtime }}</div>
+
+        <div class="condition">
+            <img src="{{ condition_icon }}" alt="{{ condition_text }}">
+            <span>{{ condition_text }}</span>
+        </div>
+
+        <div class="current-temp">Temperature: {{ temp_c }} °C / {{ temp_f }} °F</div>
+        
+        <div class="additional-info">
+            <div class="humidity">Humidity: {{ humidity }}%</div>
+            <div class="cloud-coverage">Cloud coverage: {{ cloud }}%</div>
+            <div class="visibility">Visibility: {{ visibility }} km</div>
+            <div class="feels-like">Feels like: {{ feelslike_c }} °C / {{ feelslike_f }} °F</div>
+        </div>
+        
+        <section class="hourly-forecast">
+            <h2>Hourly Forecast</h2>
+            <ul>
+                {% for hour in hourly_forecast %}
+                    <li>
+                        <p>Time: {{ hour['time'] }}</p>
+                        <p>Temperature: {{ hour['temp_c'] }} °C / {{ hour['temp_f'] }} °F</p>
+                        <p>Condition: {{ hour['condition']['text'] }}</p>
+                        <p>Precipitation : {{ hour['chance_of_rain'] }}%</p>
+                        <img src="{{ hour['condition']['icon'] }}" alt="{{ hour['condition']['text'] }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+    <div class="anchor">
+        <a href="/">
+            <ion-icon name="arrow-back-circle-outline"></ion-icon></ion-icon>
+        </a>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
