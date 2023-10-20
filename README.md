@@ -53,10 +53,6 @@ This is a simple weather web application built using Flask, a Python web framewo
 
 - Weather data is obtained from the [WeatherAPI](https://www.weatherapi.com/).
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Authors
 
 Nandakrishnan G D,Navaneeth Krishna and Sarah G Theerthan
