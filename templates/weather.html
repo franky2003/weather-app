@@ -54,9 +54,20 @@
                         <img src="{{ hour['condition']['icon'] }}" alt="{{ hour['condition']['text'] }}">
                     </div>
                 {% endfor %}
+                <div class="forecast-card">
+                    {% set next_hour = (hourly_forecast[0]['time'][11:13]|int + 1)|string %}
+                    {% if next_hour == '24' %}
+                        {% set next_hour = '00' %}
+                    {% endif %}
+                    {% set next_time = next_hour ~ hourly_forecast[0]['time'][13:16] %}
+                    <p class="time">Time: 2023-10-21 {{ next_time }}</p>
+                    <p class="temperature">Temperature: {{ hourly_forecast[0]['temp_c'] }} °C / {{ hourly_forecast[0]['temp_f'] }} °F</p>
+                    <p class="condition">Condition: {{ hourly_forecast[0]['condition']['text'] }}</p>
+                    <p class="precipitation">Precipitation: {{ hourly_forecast[0]['chance_of_rain'] }}%</p>
+                    <img src="{{ hourly_forecast[0]['condition']['icon'] }}" alt="{{ hourly_forecast[0]['condition']['text'] }}">
+                </div>
             </div>
         </section>
-    </div>
     <div class="anchor">
         <a href="/">
             <ion-icon name="arrow-back-circle-outline"></ion-icon></ion-icon>
