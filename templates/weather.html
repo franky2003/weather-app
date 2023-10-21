@@ -41,20 +41,20 @@
             <div class="visibility">Visibility: {{ visibility }} km</div>
             <div class="feels-like">Feels like: {{ feelslike_c }} °C / {{ feelslike_f }} °F</div>
         </div>
-        
+
         <section class="hourly-forecast">
             <h2>Hourly Forecast</h2>
-            <ul>
+            <div class="forecast-cards">
                 {% for hour in hourly_forecast %}
-                    <li>
-                        <p>Time: {{ hour['time'] }}</p>
-                        <p>Temperature: {{ hour['temp_c'] }} °C / {{ hour['temp_f'] }} °F</p>
-                        <p>Condition: {{ hour['condition']['text'] }}</p>
-                        <p>Precipitation : {{ hour['chance_of_rain'] }}%</p>
+                    <div class="forecast-card">
+                        <p class="time">Time: {{ hour['time'] }}</p>
+                        <p class="temperature">Temperature: {{ hour['temp_c'] }} °C / {{ hour['temp_f'] }} °F</p>
+                        <p class="condition">Condition: {{ hour['condition']['text'] }}</p>
+                        <p class="precipitation">Precipitation: {{ hour['chance_of_rain'] }}%</p>
                         <img src="{{ hour['condition']['icon'] }}" alt="{{ hour['condition']['text'] }}">
-                    </li>
+                    </div>
                 {% endfor %}
-            </ul>
+            </div>
         </section>
     </div>
     <div class="anchor">

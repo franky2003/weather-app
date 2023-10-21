@@ -79,7 +79,7 @@ def weather():
         forecast_response = requests.get(forecast_url)
         if forecast_response.status_code == 200:
             forecast_data = forecast_response.json()
-            hourly_forecast = forecast_data['forecast']['forecastday'][0]['hour']
+            hourly_forecast = forecast_data ['forecast']['forecastday'][0]['hour'][:2]
         else:
             hourly_forecast = []
 
