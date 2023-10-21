@@ -157,39 +157,15 @@
         </form>
         <label class="heading" for="weather-toggle">Popular Cities</label>
         <input type="checkbox" id="weather-toggle" class="weather-toggle">
-        <section class="weather-cards">
-            <div class="card">
-                <h2>Trivandrum</h2>
-                <p>Temperature: 29°C</p>
-                <p>Weather: Mist</p>
-            </div>
-            <div class="card">
-                <h2>Mumbai</h2>
-                <p>Temperature: 28°C</p>
-                <p>Weather: Clear</p>
-            </div>
-            <div class="card">
-                <h2>Chennai</h2>
-                <p>Temperature: 32°C</p>
-                <p>Weather: Sunny</p>
-            </div>
-            <div class="card">
-                <h2>Kolkata</h2>
-                <p>Temperature: 32°C</p>
-                <p>Weather: Mist</p>
-            </div>
-            <div class="card">
-                <h2>Jaipur</h2>
-                <p>Temperature: 35°C</p>
-                <p>Weather: Sunny</p>
-            </div>
-            <div class="card">
-                <h2>Kochi</h2>
-                <p>Temperature: 32°C</p>
-                <p>Weather: Cloudy</p>
-            </div>
-        </section>
-    
+            <section class="weather-cards">
+                {% for city_data in popular_cities_weather %}
+                    <div class="card">
+                        <h2>{{ city_data['name'] }}</h2>
+                        <p>Temperature: {{ city_data['temperature'] }}°C</p>
+                        <p>Weather: {{ city_data['condition'] }}</p>
+                    </div>
+                {% endfor %}
+            </section>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </section>

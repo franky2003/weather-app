@@ -28,10 +28,28 @@ def get_location_suggestions(query):
 
     return [location for location in suggested_locations if query.lower() in location.lower()]
 
+def get_popular_cities_weather():
+    popular_cities = ['Trivandrum', 'Mumbai', 'Chennai', 'Kolkata', 'Jaipur', 'Kochi']
+    weather_data = []
+
+    for city in popular_cities:
+        url = f"http://api.weatherapi.com/v1/current.json?key=87a44b75adab42b597544223231910&q={city}&aqi=no"
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            data = response.json()
+            name = data['location']['name']
+            temp_c = data['current']['temp_c']
+            condition_text = data['current']['condition']['text']
+
+            weather_data.append({'name': name, 'temperature': temp_c, 'condition': condition_text})
+
+    return weather_data
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    popular_cities_weather = get_popular_cities_weather()
+    return render_template('index.html', popular_cities_weather=popular_cities_weather)
 
 @app.route('/weather', methods=['POST'])
 def weather():
