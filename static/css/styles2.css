@@ -48,19 +48,19 @@ body.condition-Rain {
 body.condition-Clear {
   background-image: var(--background-clear);
 }
-body.condition-Light_Rain{
+body.condition-LightRain{
   background-image: var(--background-rain);
 }
-body.condition-Heavy_Rain{
+body.condition-HeavyRain{
   background-image: var(--background-rain);
 }
 body.condition-Overcast {
 background-image: var(--background-overcast);
 }
-body.condition-Partly_Cloudy {
+body.condition-PartlyCloudy {
   background-image: var(--background-cloudy);
 }
-body.condition-Mostly_Cloudy {
+body.condition-MostlyCloudy {
   background-image: var(--background-cloudy);
 }
 body.condition-Thunderstorm{
