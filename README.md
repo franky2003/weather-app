@@ -1,4 +1,4 @@
-# Weather App Readme
+# Weather App README
 
 ## Overview
 
@@ -56,3 +56,14 @@ This is a simple weather web application built using Flask, a Python web framewo
 ## Authors
 
 Nandakrishnan G D,Navaneeth Krishna and Sarah G Theerthan
+
+## Screenshots
+### Home Page
+![image](https://github.com/franky2003/weather-app/assets/123226796/3e0ae94f-afcb-4973-8b17-2c0f31a54028)
+### Weather Page
+![screencapture-127-0-0-1-5000-weather-2023-10-21-12_01_47](https://github.com/franky2003/weather-app/assets/123226796/281e3944-0a59-4366-a2c4-25a7af97b68b)
+### Location Not Found Page
+![image](https://github.com/franky2003/weather-app/assets/123226796/9e62e9cd-43fc-43da-8264-fa40acb4bb66)
+
+
+
